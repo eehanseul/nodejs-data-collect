@@ -21,8 +21,7 @@ const fetchQuote = async (url) => {
   $(".quote").map((index, element) => {
     const quote = $(element).find(".text").text().trim();
     const author = $(element).find(".author").text().trim();
-    const authorUrl = $(element).find("a").attr("href");
-    // /author/{author} 형태
+    const authorUrl = $(element).find("a").attr("href"); // /author/{author} 형태
     const tags = [];
     $(element)
       .find(".tag")
@@ -40,10 +39,10 @@ const fetchQuote = async (url) => {
 
     const detailUrl = baseUrl + authorUrl; //작가별 상세페이지url
     quotePromises.push(fetchQuoteDetails(detailUrl,data));
-    //fetchQuoteDetails(detailUrl, data);
     quotes.push(data);
   });
 
+  //promise 객체들을 다 연산하고 반환하겠다.
   await Promise.all(quotePromises);
 
   //다음 페이지 확인
@@ -56,9 +55,8 @@ const fetchQuote = async (url) => {
   } else {
     isNext = false; //다음 페이지 없으면 isNext=false 시키고 멈춤
     
-    
     //파일로 저장
-    await fs.writeFile('quotes.json', JSON.stringify(quotes, null, 2));
+    await fs.writeFile('quotes.json', JSON.stringify(quotes));
     console.log('Quotes saved to quotes.json');
   }
 };
