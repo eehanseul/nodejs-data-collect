@@ -56,7 +56,7 @@ const fetchQuote = async (url) => {
     isNext = false; //다음 페이지 없으면 isNext=false 시키고 멈춤
     
     //파일로 저장
-    await fs.writeFile('quotes.json', JSON.stringify(quotes));
+    await fs.writeFile('./result/quotes.json', JSON.stringify(quotes));
     console.log('Quotes saved to quotes.json');
   }
 };

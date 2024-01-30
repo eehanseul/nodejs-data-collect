@@ -1,6 +1,5 @@
 import * as cheerio from "cheerio";
 import axios from "axios";
-import fs from "fs/promises";
 
 const baseUrl = `https://search.naver.com/search.naver?where=news&sm=tab_jum&query=이차전지`;
 

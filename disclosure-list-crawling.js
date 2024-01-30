@@ -31,7 +31,7 @@ async function decodeHTML(response) {
 }
 
 async function saveData(dailyPrices) {
-    fs.writeFileSync("./disclosure-list.json", JSON.stringify(dailyPrices));
+    fs.writeFileSync("./result/disclosure-list.json", JSON.stringify(dailyPrices));
 }
 
 // 네이버페이 증권 뉴스 페이지 -> 공시정보
